@@ -1,6 +1,7 @@
 package com.example.pagingapplication.di.module
 
 import android.content.Context
+import com.example.mvvmdagger.app.Constant
 import com.example.mvvmdagger.data.network.ApiInterface
 import dagger.Module
 import dagger.Provides
@@ -34,7 +35,7 @@ class ApplicationModule {
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://newsapi.org")
+            .baseUrl(Constant.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

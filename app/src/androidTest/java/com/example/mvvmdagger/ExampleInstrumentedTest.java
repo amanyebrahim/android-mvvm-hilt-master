@@ -1,4 +1,4 @@
-package com.inspiringteam.mvvmdagger;
+package com.example.mvvmdagger;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -4,14 +4,10 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 
-
 @Parcelize
-class Feed (
+class Feed(
+        var RSRP: Int,
+        var RSRQ: Int,
+        var SINR: Int
 
-//    @Transient
-//  val id: Long = 0,
-     var status: String,
-     var totalResults: Long = 0
-
-) : Parcelable {
-}
+) : Parcelable

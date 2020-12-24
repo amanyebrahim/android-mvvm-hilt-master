@@ -2,4 +2,11 @@
     <string name="app_name">MVVM Hilt</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="rsrp_txt">RSRP</string>
+    <string name="rsqr_txt">RSRQ</string>
+    <string name="sinr_txt">SINR</string>
+
+
+
 </resources>

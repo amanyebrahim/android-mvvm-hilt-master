@@ -1,25 +1,144 @@
-<!--<SwipeRefreshLayout-->
-<!--    android:id="@+id/swipe_refresh_layout"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    -->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android">-->
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/lightBlack"
+    android:alpha=".9"
+    android:layout_height="wrap_content">
 
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_feed"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:weightSum="3"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/rsrp_txt"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+             android:textColor="@color/placeholder_grey"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_column="1" />
+
+        <TextView
+            android:text="@string/rsqr_txt"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/placeholder_grey"
+            android:layout_height="wrap_content"
+            android:layout_column="2" />
+        <TextView
+            android:text="@string/sinr_txt"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/placeholder_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3" />
+
+    </TableRow>
+
+    <TableRow android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:weightSum="3"
+
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="25dp" >
+
+            <ProgressBar
+                android:layout_width="100dp"
+                  android:layout_centerInParent="true"
+                android:id="@+id/myProgress"
+                android:layout_gravity="center"
+                android:progress="100"
+                android:scaleY="5"
+                android:max="100"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/myTextProgress"
+                 android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="88"
+
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="25dp" >
+
+            <ProgressBar
+                android:layout_width="100dp"
+                android:layout_centerInParent="true"
+
+                android:layout_gravity="center"
+                android:progress="100"
+                android:scaleY="5"
+                android:max="100"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_height="match_parent"
+                />
+            <TextView
+
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="88"
+
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="25dp" >
+
+            <ProgressBar
+                android:layout_width="100dp"
+                android:layout_centerInParent="true"
+
+                android:layout_gravity="center"
+                android:progress="100"
+                android:scaleY="5"
+                android:max="100"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_height="match_parent"
+                />
+            <TextView
+
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="88"
+
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content" />
+
+        </RelativeLayout>
+    </TableRow>
 
 
-</LinearLayout>
 
-    <!--    </android.support.v4.widget.SwipeRefreshLayout>-->
-
+</TableLayout>

@@ -1,4 +1,4 @@
-package com.inspiringteam.mvvmdagger;
+package com.example.mvvmdagger;
 
 import org.junit.Test;
 

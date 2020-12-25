@@ -1,4 +1,11 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+<TableLayout
     android:layout_width="match_parent"
     android:background="@color/lightBlack"
     android:alpha=".9"
@@ -57,19 +64,19 @@
             <ProgressBar
                 android:layout_width="100dp"
                   android:layout_centerInParent="true"
-                android:id="@+id/myProgress"
+                android:id="@+id/rsrp_progressBar"
                 android:layout_gravity="center"
-                android:progress="100"
+                android:progress="22"
                 android:scaleY="5"
                 android:max="100"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_height="match_parent"
                 />
             <TextView
-                android:id="@+id/myTextProgress"
+                android:id="@+id/tv_rsrp"
                  android:gravity="center"
                 android:layout_centerInParent="true"
-                android:text="88"
+                android:text="@string/initial_value"
 
                 android:textColor="@color/white"
                 android:layout_height="match_parent"
@@ -88,7 +95,7 @@
             <ProgressBar
                 android:layout_width="100dp"
                 android:layout_centerInParent="true"
-
+                android:id="@+id/rsrq_progressBar"
                 android:layout_gravity="center"
                 android:progress="100"
                 android:scaleY="5"
@@ -100,8 +107,8 @@
 
                 android:gravity="center"
                 android:layout_centerInParent="true"
-                android:text="88"
-
+                android:text="@string/initial_value"
+                 android:id="@+id/tv_rsqr"
                 android:textColor="@color/white"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content" />
@@ -118,20 +125,19 @@
             <ProgressBar
                 android:layout_width="100dp"
                 android:layout_centerInParent="true"
-
                 android:layout_gravity="center"
                 android:progress="100"
                 android:scaleY="5"
                 android:max="100"
+                android:id="@+id/snir_progressBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_height="match_parent"
                 />
             <TextView
-
                 android:gravity="center"
                 android:layout_centerInParent="true"
-                android:text="88"
-
+                android:text="@string/initial_value"
+                android:id="@+id/tv_sinr"
                 android:textColor="@color/white"
                 android:layout_height="match_parent"
                 android:layout_width="wrap_content" />
@@ -142,3 +148,4 @@
 
 
 </TableLayout>
+</LinearLayout>

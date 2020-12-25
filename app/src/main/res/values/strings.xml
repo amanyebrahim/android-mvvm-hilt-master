@@ -6,7 +6,7 @@
     <string name="rsrp_txt">RSRP</string>
     <string name="rsqr_txt">RSRQ</string>
     <string name="sinr_txt">SINR</string>
-
+    <string name="initial_value">0</string>
 
 
 </resources>

@@ -66,7 +66,7 @@
                   android:layout_centerInParent="true"
                 android:id="@+id/rsrp_progressBar"
                 android:layout_gravity="center"
-                android:progress="22"
+                android:progress="0"
                 android:scaleY="5"
                 android:max="100"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -97,7 +97,7 @@
                 android:layout_centerInParent="true"
                 android:id="@+id/rsrq_progressBar"
                 android:layout_gravity="center"
-                android:progress="100"
+                android:progress="0"
                 android:scaleY="5"
                 android:max="100"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -126,7 +126,7 @@
                 android:layout_width="100dp"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:progress="100"
+                android:progress="0"
                 android:scaleY="5"
                 android:max="100"
                 android:id="@+id/snir_progressBar"
@@ -148,4 +148,13 @@
 
 
 </TableLayout>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         />
 </LinearLayout>

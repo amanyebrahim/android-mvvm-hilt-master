@@ -20,20 +20,16 @@ object DateUtils {
          return DateFormat.format("HH:mm", cal).toString()
      }
 
-    fun addMinutesTodate(dt:Date,minute:Int): String {
-
-        var c = Calendar.getInstance ()
+    fun addMinutesToDate(dt:Date, minute:Int): String {
+        val c = Calendar.getInstance ()
         try {
-            c.setTime(dt)
+            c.time = dt
         } catch (e:Exception) {
             e.printStackTrace()
         }
         c.add(Calendar.MINUTE, minute)
-        // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
-        var sdf1 = SimpleDateFormat("HH:mm", Locale.ENGLISH)
-        Log.e("minutes",sdf1.format (c.getTime()).toString())
-
-        return sdf1.format (c.getTime()).toString()
+        val sdf1 = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+        return sdf1.format (c.time).toString()
     }
 
 
@@ -45,7 +41,6 @@ object DateUtils {
         val format = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
         try {
             dateFormat = format.parse(date)
-            System.out.println(date)
         } catch (e: ParseException) {
             e.printStackTrace()
         }

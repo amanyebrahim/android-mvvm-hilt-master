@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import com.example.mvvmdagger.R
@@ -12,6 +11,7 @@ import com.example.mvvmdagger.data.model.Feed
 import com.example.mvvmdagger.databinding.ActivityMainBinding
 import com.example.mvvmdagger.ui.base.ParentActivity
 import com.example.mvvmdagger.utils.DateUtils
+import com.example.mvvmdagger.utils.LogUtils
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis.AxisDependency
@@ -64,7 +64,7 @@ class MainActivity : ParentActivity() {
                 .subscribe { fetchApiFeed() }
         )
 
-        setChartData()
+        initializeChart()
 
 
     }
@@ -81,9 +81,8 @@ class MainActivity : ParentActivity() {
 
 
     private fun onError(throwable: Throwable) {
-//        Toast.makeText(this, throwable.message,
-//                Toast.LENGTH_LONG).show()
-        Log.e("error", throwable.message.toString())
+        mToaster?.makeToast(getString(R.string.error_connection))
+        LogUtils.debug( throwable.message.toString())
     }
 
 
@@ -256,7 +255,7 @@ class MainActivity : ParentActivity() {
     }
 
 
-    private fun setChartData() {
+    private fun initializeChart() {
 
 
         uiBinding.chart.description.isEnabled = false
@@ -297,16 +296,16 @@ class MainActivity : ParentActivity() {
                         return DateUtils.getDate(System.currentTimeMillis())
                     }
                     1.5f -> {
-                        return DateUtils.addMinutesTodate(Date(), 1)
+                        return DateUtils.addMinutesToDate(Date(), 1)
                     }
                     2f -> {
-                        return DateUtils.addMinutesTodate(Date(), 2)
+                        return DateUtils.addMinutesToDate(Date(), 2)
                     }
                     2.5f -> {
-                        return DateUtils.addMinutesTodate(Date(), 3)
+                        return DateUtils.addMinutesToDate(Date(), 3)
                     }
                     3f -> {
-                        return DateUtils.addMinutesTodate(Date(), 4)
+                        return DateUtils.addMinutesToDate(Date(), 4)
                     }
                     else -> return "0"
                 }
@@ -315,18 +314,19 @@ class MainActivity : ParentActivity() {
         }
 
 
-        disposable.add(Observable.interval(6,
+        disposable.add(Observable.interval(5,
                 TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    if (xInitial <= 3f)
-                        setData()
+
+                    if (xInitial <= 3f&&rsrpFeed.size>0)
+                        setChartData()
 
                 })
     }
 
 
-    private fun setData() {
+    private fun setChartData() {
 
         xInitial = (xInitial + .1).toFloat()
 
@@ -383,9 +383,7 @@ class MainActivity : ParentActivity() {
             set2.fillColor = Color.RED
             set2.setDrawCircleHole(false)
             set2.highLightColor = Color.rgb(244, 117, 117)
-            //set2.setFillFormatter(new MyFillFormatter(900f));
 
-            //set2.setFillFormatter(new MyFillFormatter(900f));
             set3 = LineDataSet(valuesSinr, "SINR")
             set3.axisDependency = AxisDependency.RIGHT
             set3.color = Color.YELLOW
@@ -398,13 +396,10 @@ class MainActivity : ParentActivity() {
             set3.highLightColor = Color.rgb(244, 117, 117)
 
             // create a data object with the data sets
-
-            // create a data object with the data sets
             val data = LineData(set1, set2, set3)
 
             data.setDrawValues(false)
 
-            // set data
 
             // set data
             uiBinding.chart.notifyDataSetChanged()
